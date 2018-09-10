@@ -1,0 +1,73 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "Test.Services";
+
+package TestServices;
+
+service TestSrv{
+	rpc	GetPersonList(GetPersonRequest) returns(PersonListResponse){}
+}
+
+
+
+//begin 通用Message
+message IntMessage {
+  int32 Value = 1;
+}
+
+//void静态方法或者无参方法，返回值或请求参数需要声明一个空类
+message EmptyMessage{}
+
+message ListIntMessage{
+  repeated int32 Items = 1;
+}
+
+message DobuleMessage{
+  double Value=1;
+}
+
+message BoolMessage {
+  bool Value = 1;
+}
+
+message StringMessage {
+  string Value = 1;
+}
+
+message DoubleMessage{
+  double Value=1;
+}
+
+message PagerRequest{
+  int32 PageIndex=1;
+  int32 PageSize=2;
+  string OrderStr=3;
+}
+
+message PagerResponse{
+  int32 PagerIndex=1;
+  int32 PagerSize=2;
+  int32 RowCount=3;
+  int32 TotalPages=4;
+}
+
+
+message GetPersonRequest{
+	string Name=1;
+    string BrithdayFrom=2;
+    string BrithdayTo=3;
+	PagerRequest Pager=4;
+}
+
+message Person{
+    string Name =1;
+    int32 Age=2;
+    string Brithday=3;
+    double Balance=4;
+}
+
+message PersonListResponse{
+	//repeated表示一个List列表
+	repeated Person List=1;
+	PagerResponse Pager=2;
+}

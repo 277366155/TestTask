@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>6803ca8b-7edc-4d71-a274-56cf1d91fd84</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>GRPCShared</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)generate_TestService_protos.bat" />
+    <None Include="$(MSBuildThisFileDirectory)TestService.proto" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)AutoMapperConvert.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TestService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TestServiceGrpc.cs" />
+  </ItemGroup>
+</Project>
